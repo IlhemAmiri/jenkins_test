@@ -5,15 +5,15 @@ pipeline {
     }
     environment {
         DOCKERHUB_CREDENTIALS = credentials('dockerhub')
-        IMAGE_NAME_SERVER = '[ilhemamirii]/mern-server'
-        IMAGE_NAME_CLIENT = '[ilhemamirii]/mern-client'
+        IMAGE_NAME_SERVER = 'ilhemamirii/mern-server'
+        IMAGE_NAME_CLIENT = 'ilhemamirii/mern-client'
     }
     stages {
         stage('Checkout') {
             steps {
                 git branch: 'main',
-                    url: 'git@gitlab.com/project.git',
-                    credentialsId: 'Gitlab_ssh'
+                    url: 'https://github.com/IlhemAmiri/jenkins_test.git',
+                    credentialsId: 'github'
             }
         }
         stage('Build Server Image') {
